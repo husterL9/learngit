@@ -57,3 +57,7 @@ Git鼓励大量使用分支：
 ```
 $ git merge --no-ff -m "merge with no-ff" dev
 ```
+
+```
+git log --graph --pretty=oneline --abbrev-commit
+```
