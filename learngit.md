@@ -2,7 +2,6 @@
 
 - 要明白这3个概念，工作区（**working tree**），暂存区（**index /stage**），本地仓库（**repository**）
 - git跟不同的参数，比较不同的区间的版本。
-
 1. git diff：是查看working tree与index的差别的。
 2. git diff --cached：是查看index与repository的差别的。
 3. git diff HEAD：是查看working tree和repository的差别的。其中：HEAD代表的是最近的一次commit的信息。
@@ -21,7 +20,7 @@ C:\Sam\works\bba-master>git config --get core.autocrlf
 true
 
 2. 设置core.autocrlf属性
-设置core.autocrlf属性为false，去除警告如下（只是眼不见心不烦罢了）。
+   设置core.autocrlf属性为false，去除警告如下（只是眼不见心不烦罢了）。
 
 C:\Sam\works\bba-master>git config core.autocrlf false
 
@@ -61,3 +60,78 @@ $ git merge --no-ff -m "merge with no-ff" dev
 ```
 git log --graph --pretty=oneline --abbrev-commit
 ```
+
+```
+$ git pull
+Auto-merging env.txt
+CONFLICT (add/add): Merge conflict in env.txt
+Automatic merge failed; fix conflicts and then commit the result.
+```
+
+这回`git pull`成功，但是合并有冲突，需要手动解决，解决的方法和分支管理中的[解决冲突](http://www.liaoxuefeng.com/wiki/896043488029600/900004111093344)完全一样。解决后，提交，再push：
+
+```
+$ git commit -m "fix env conflict"
+[dev 57c53ab] fix env conflict
+
+$ git push origin dev
+Counting objects: 6, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (6/6), 621 bytes | 621.00 KiB/s, done.
+Total 6 (delta 0), reused 0 (delta 0)
+To github.com:michaelliao/learngit.git
+   7a5e5dd..57c53ab  dev -> dev
+```
+
+现在，你的小伙伴要在`dev`分支上开发，就必须创建远程`origin`的`dev`分支到本地，于是他用这个命令创建本地`dev`分支：
+
+```
+$ git checkout -b dev origin/dev
+```
+
+现在，他就可以在`dev`上继续修改，然后，时不时地把`dev`分支`push`到远程：
+
+```
+$ git add env.txt
+
+$ git commit -m "add env"
+[dev 7a5e5dd] add env
+ 1 file changed, 1 insertion(+)
+ create mode 100644 env.txt
+
+$ git push origin dev
+Counting objects: 3, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 308 bytes | 308.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To github.com:michaelliao/learngit.git
+   f52c633..7a5e5dd  dev -> dev
+```
+
+## fork 了别人的仓库后，原作者又更新了仓库，如何将自己的代码和原仓库保持一致？
+
+[同步一个 fork](https://gaohaoyang.github.io/2015/04/12/Syncing-a-fork/)
+
+`git fetch upstream` `git merge upstream/master` 如果想更新到 GitHub 的 fork 上，直接 `git push origin master` 就好了。
+
+
+
+## fork与pull request
+
+| fork         | https://github.com/oldratlee/translations/blob/master/git-workflows-and-tutorials/workflow-forking.md#-%E5%B7%A5%E4%BD%9C%E6%96%B9%E5%BC%8F |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| pull-request | https://github.com/oldratlee/translations/blob/master/git-workflows-and-tutorials/pull-request.md                                           |
+|              |                                                                                                                                             |
+|              |                                                                                                                                             |
+
+
+
+## 可参考资料
+
+| git权威指南 | http://www.worldhello.net/gotgit/index.html |
+| ------- | ------------------------------------------- |
+|         |                                             |
+|         |                                             |
+|         |                                             |
