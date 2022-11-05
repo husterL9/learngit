@@ -136,7 +136,7 @@ To github.com:michaelliao/learngit.git
 
 ![](D:\SE2\deep_learning\learngit\imgs\z99.png)
 
-# 添加到远程库
+# 添加到lal
 
 df
 
