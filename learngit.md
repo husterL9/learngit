@@ -138,8 +138,12 @@ To github.com:michaelliao/learngit.git
 
 # 添加到远程库
 
-
-
 关联后，使用命令`git push -u origin master`第一次推送master分支的所有内容；
 
 此后，每次本地提交后，只要有必要，就可以使用命令`git push origin master`推送最新修改；
+
+
+
+# 多人协作
+
+- 建立本地分支和远程分支的关联，使用`git branch --set-upstream branch-name origin/branch-name`；
