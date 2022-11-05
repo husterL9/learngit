@@ -116,8 +116,6 @@ To github.com:michaelliao/learngit.git
 
 `git fetch upstream` `git merge upstream/master` 如果想更新到 GitHub 的 fork 上，直接 `git push origin master` 就好了。
 
-
-
 ## fork与pull request
 
 | fork         | https://github.com/oldratlee/translations/blob/master/git-workflows-and-tutorials/workflow-forking.md#-%E5%B7%A5%E4%BD%9C%E6%96%B9%E5%BC%8F |
@@ -126,8 +124,6 @@ To github.com:michaelliao/learngit.git
 |              |                                                                                                                                             |
 |              |                                                                                                                                             |
 
-
-
 ## 可参考资料
 
 | git权威指南 | http://www.worldhello.net/gotgit/index.html |
@@ -135,3 +131,7 @@ To github.com:michaelliao/learngit.git
 |         |                                             |
 |         |                                             |
 |         |                                             |
+
+
+
+# Git提供了一个命令`git reflog`用来记录你的每一次命令
