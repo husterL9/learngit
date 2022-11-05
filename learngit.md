@@ -136,10 +136,12 @@ To github.com:michaelliao/learngit.git
 
 ![](D:\SE2\deep_learning\learngit\imgs\z99.png)
 
-
-
 # 添加到远程库
+
+df
 
 关联后，使用命令`git push -u origin master`第一次推送master分支的所有内容；
 
-此后，每次本地提交后，只要有必要，就可以使用命令`git push origin master`推送最新修改；
+此后，每次本地提交后，只要有必要，就可以使用命令`git push origin master`推送最新改修；
+
+zyl
